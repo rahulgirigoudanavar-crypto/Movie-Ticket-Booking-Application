@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirm Booking | BookMyTicket</title>
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
+	rel="stylesheet">
+
+<style>
+:root {
+	--bg-main: #0f172a;
+	--bg-card: #111827;
+	--border-soft: #1f2937;
+	--text-main: #e5e7eb;
+	--text-muted: #9ca3af;
+	--accent: #e74c3c;
+	--success: #22c55e;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	background: radial-gradient(circle at top, #1e293b, var(--bg-main));
+	min-height: 100vh;
+	color: var(--text-main);
+	padding: 30px 15px;
+}
+
+/* Container */
+.container {
+	max-width: 900px;
+}
+
+/* Card */
+.card {
+	background: linear-gradient(180deg, #111827, #0b1220);
+	border-radius: 20px;
+	border: 1px solid var(--border-soft);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65);
+	padding: 35px;
+	animation: fadeInUp 0.6s ease;
+}
+
+/* Section title */
+.section-title {
+	font-weight: 800;
+	font-size: 1.25rem;
+	margin-bottom: 18px;
+	letter-spacing: 0.4px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* Info rows */
+.info-row {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px dashed var(--border-soft);
+	padding: 10px 0;
+	font-size: 0.95rem;
+}
+
+.info-row span {
+	color: var(--text-muted);
+}
+
+/* Seats */
+.seat-box {
+	display: inline-block;
+	background: linear-gradient(135deg, #22c55e, #16a34a);
+	color: white;
+	padding: 6px 14px;
+	border-radius: 20px;
+	margin: 5px;
+	font-weight: 700;
+	font-size: 0.85rem;
+	box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35);
+}
+
+/* Price */
+.seat-summary {
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 14px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.seat-summary .info-row {
+	justify-content: space-between;
+	padding: 14px 18px;
+	font-size: 0.95rem;
+}
+
+.seat-summary .info-row:first-child {
+	background: rgba(255, 255, 255, 0.04);
+	font-weight: 700;
+}
+
+.total {
+	font-size: 1.3rem;
+	font-weight: 900;
+	color: var(--success);
+	margin-top: 10px;
+}
+
+/* Buttons */
+.btn-cancel {
+	background: transparent;
+	border: 1px solid var(--border-soft);
+	color: var(--text-muted);
+	padding: 10px 18px;
+	border-radius: 10px;
+	font-weight: 600;
+	transition: all 0.25s ease;
+}
+
+.btn-cancel:hover {
+	color: white;
+	border-color: var(--text-main);
+}
+
+.btn-confirm {
+	background: linear-gradient(135deg, #e74c3c, #ff6b6b);
+	border: none;
+	color: white;
+	padding: 12px 26px;
+	border-radius: 12px;
+	font-weight: 700;
+	transition: all 0.25s ease;
+	box-shadow: 0 12px 30px rgba(231, 76, 60, 0.45);
+}
+
+.btn-confirm:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 18px 45px rgba(231, 76, 60, 0.6);
+}
+
+/* Animation */
+@keyframes fadeInUp {from { opacity:0;
+	transform: translateY(20px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
+@media ( max-width : 768px) {
+	.card {
+		padding: 25px;
+	}
+	.info-row {
+		flex-direction: column;
+		gap: 4px;
+	}
+}
+</style>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="card">
+
+			<!-- EVENT DETAILS -->
+			<h3 class="section-title">🎫 Event Details</h3>
+
+			<div class="info-row">
+				<strong>Event</strong> <span th:text="${show.movie.name}"></span>
+			</div>
+
+			<div class="info-row">
+				<strong>Date</strong> <span th:text="${show.showDate}"></span>
+			</div>
+
+			<div class="info-row">
+				<strong>Time</strong> <span> <span
+					th:text="${show.startTime}"></span> - <span
+					th:text="${show.endTime}"></span>
+				</span>
+			</div>
+
+			<hr>
+
+			<!-- SEATS -->
+			<h3 class="section-title">🪑 Selected Seats</h3>
+
+			<div class="seat-summary">
+				<div class="info-row">
+					<strong>Seat</strong>
+					<strong>Category</strong>
+					<strong>Price</strong>
+				</div>
+				<div th:each="seat : ${selectedSeatDetails}" class="info-row">
+					<span th:text="${seat.seatNumber}"></span>
+					<span th:text="${seat.category}"></span>
+					<span>₹ <span th:text="${seat.price}"></span></span>
+				</div>
+			</div>
+
+			<hr>
+
+			<!-- PRICE -->
+			<h3 class="section-title">💰 Price Summary</h3>
+
+			<div class="info-row">
+				<strong>Total Amount</strong>
+				<span>₹ <span th:text="${totalAmount}"></span></span>
+			</div>
+
+			<hr>
+
+			<!-- ACTIONS -->
+			<div class="text-end mt-4">
+				<a href="/" class="btn btn-cancel">Cancel</a>
+				<button class="btn btn-confirm ms-2" id="rzp-button1">
+					Confirm & Pay</button>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Razorpay -->
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script>
+		var options = {
+			"key" : "[[${key}]]",
+			"amount" : "[[${amount}]]",
+			"currency" : "[[${currency}]]",
+			"name" : "Book My Ticket",
+			"description" : "Event Ticket Booking",
+			"image" : "https://miro.medium.com/v2/resize:fit:1024/1*S9eGTVGyjaDlkNOlnDj_jQ.png",
+			"order_id" : "[[${orderId}]]",
+			"callback_url" : "/confirm-ticket",
+			"prefill" : {
+				"name" : "[[${user.name}]]",
+				"email" : "[[${user.email}]]",
+				"contact" : "[[${user.mobile}]]"
+			},
+			"theme" : {
+				"color" : "#e74c3c"
+			}
+		};
+
+		var rzp1 = new Razorpay(options);
+		document.getElementById("rzp-button1").onclick = function(e) {
+			rzp1.open();
+			e.preventDefault();
+		};
+	</script>
+
+</body>
+</html>

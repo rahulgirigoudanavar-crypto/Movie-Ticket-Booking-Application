@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyTicket | Project Gateway</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #111827;
+            --border: #1f2937;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --accent: #6496ff;
+            --accent-pink: #ff4081;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: radial-gradient(circle at top, #1e293b, var(--bg-main));
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .gateway-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 600px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            background: rgba(255, 64, 129, 0.1);
+            color: var(--accent-pink);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 64, 129, 0.2);
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .btn-deploy {
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink));
+            border: none;
+            color: white;
+            padding: 14px 32px;
+            font-weight: 700;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-deploy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(100, 150, 255, 0.4);
+            color: white;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="gateway-card">
+    <div class="status-badge">⚠️ Backend Service Required</div>
+    <h1>BookMyTicket</h1>
+    <p>
+        You have successfully uploaded the project files to Netlify! However, this is a <strong>Java Spring Boot</strong> 
+        application which requires a backend server to process bookings, logins, and database operations.
+    </p>
+
+    <div class="info-box">
+        Netlify is a <strong>Static Host</strong>. It can display this page, but it cannot run the <code>.jar</code> 
+        files or the Java logic inside the <code>templates/</code> folder.
+    </div>
+
+    <a href="https://render.com" target="_blank" class="btn-deploy">🚀 Deploy Full App to Render</a>
+    
+    <div class="mt-4">
+        <small class="text-muted">To run locally: <code>mvn spring-boot:run</code> and visit <code>localhost:8091</code></small>
+    </div>
+</div>
+
+</body>
+</html>

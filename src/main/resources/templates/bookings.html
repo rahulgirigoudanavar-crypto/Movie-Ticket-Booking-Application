@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>My Bookings</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #111827;
+    --border: #1f2937;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --accent: #6496ff;
+    --accent-pink: #ff4081;
+}
+
+/* ===== GLOBAL ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #1e293b, var(--bg-main));
+    color: var(--text-main);
+    padding: 30px;
+}
+
+/* ===== HEADER ===== */
+h1 {
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* ===== EMPTY TEXT ===== */
+.empty {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 18px;
+}
+
+/* ===== BOOKING CARD ===== */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* ===== EVENT NAME ===== */
+.card h3 {
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* ===== DETAILS ===== */
+.detail {
+    margin: 6px 0;
+    color: var(--text-muted);
+}
+
+.detail span {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* ===== AMOUNT ===== */
+.amount {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #22c55e;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎟️ My Bookings</h1>
+
+<!-- ❌ If no bookings -->
+<p class="empty" th:if="${#lists.isEmpty(bookings)}">
+    No bookings yet...
+</p>
+
+<!-- ✅ If bookings exist -->
+<div th:if="${!#lists.isEmpty(bookings)}">
+
+    <div class="card" th:each="b : ${bookings}">
+        
+        <h3 th:text="${b.movieName}">Event Name</h3>
+
+        <p class="detail">
+            📅 Date: <span th:text="${b.date}"></span>
+        </p>
+
+        <p class="detail">
+            🎫 Seats: <span th:text="${b.seats}"></span>
+        </p>
+
+        <p class="amount">
+            💰 ₹<span th:text="${b.totalAmount}"></span>
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

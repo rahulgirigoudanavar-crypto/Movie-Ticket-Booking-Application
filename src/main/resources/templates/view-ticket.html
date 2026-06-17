@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ticket Confirmed</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-main: #0f172a;
+    --card: #111827;
+    --accent: #22c55e;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+}
+
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #1e293b, var(--bg-main));
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== CARD ===== */
+.ticket-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 18px;
+    width: 380px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+}
+
+/* ===== TITLE ===== */
+.title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+/* ===== DETAILS ===== */
+.detail {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.detail span {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* ===== QR ===== */
+.qr-box {
+    margin-top: 20px;
+}
+
+.qr-box img {
+    border-radius: 10px;
+    background: white;
+    padding: 8px;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    margin-top: 25px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(34,197,94,0.5);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="ticket-card">
+
+    <div class="title">🎟️ Booking Confirmed</div>
+
+    <!-- � EVENT DETAILS -->
+    <div class="detail">🎫 Event: <span th:text="${ticket.movieName}"></span></div>
+    <div class="detail">🏢 Theater: <span th:text="${ticket.theaterName}"></span></div>
+    <div class="detail">⏰ Time: <span th:text="${ticket.showTiming}"></span></div>
+    <div class="detail">📅 Date: <span th:text="${ticket.showDate}"></span></div>
+
+    <!-- 🎫 SEATS -->
+    <div class="detail">
+        🎟️ Seats:
+        <span th:text="${#strings.arrayJoin(ticket.seatNumber, ', ')}"></span>
+    </div>
+
+    <!-- 💰 AMOUNT -->
+    <div class="detail">
+        💰 Total:
+        ₹<span th:text="${ticket.ticketPrice}"></span>
+    </div>
+
+    <!-- 📱 QR -->
+    <div class="qr-box">
+        <h4>Scan QR</h4>
+        <img th:src="${ticket.qrUrl}" width="180"/>
+    </div>
+
+    <!-- 🚀 BUTTON -->
+    <button class="btn" onclick="goHome()">Proceed</button>
+
+</div>
+
+<script>
+function goHome(){
+    window.location.href = "/";
+}
+</script>
+
+</body>
+</html>

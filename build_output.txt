@@ -1,0 +1,69 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.jsp:book-my-ticket >-----------------------
+[INFO] Building book-my-ticket 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ book-my-ticket ---
+[INFO] Deleting d:\New folder\book-my-ticket\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ book-my-ticket ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 30 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ book-my-ticket ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 41 source files with javac [debug release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ book-my-ticket ---
+[INFO] Copying 0 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ book-my-ticket ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 3 source files with javac [debug release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ book-my-ticket ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests$EntityNotFoundTests
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.363 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests$EntityNotFoundTests
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests$AuthorizationTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests$AuthorizationTests
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests$TheaterDeletionTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests$TheaterDeletionTests
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests$ScreenDeletionTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests$ScreenDeletionTests
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests$MovieDeletionTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests$MovieDeletionTests
+[INFO] Running com.jsp.book.service.DeleteOperationsIntegrationTests$ShowDeletionTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests$ShowDeletionTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.657 s -- in com.jsp.book.service.DeleteOperationsIntegrationTests
+[INFO] Running com.jsp.book.service.DeleteOperationTests
+[INFO] Running com.jsp.book.service.DeleteOperationTests$DeleteWithBookedTicketsTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in com.jsp.book.service.DeleteOperationTests$DeleteWithBookedTicketsTests
+[INFO] Running com.jsp.book.service.DeleteOperationTests$ShowDeleteTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.jsp.book.service.DeleteOperationTests$ShowDeleteTests
+[INFO] Running com.jsp.book.service.DeleteOperationTests$MovieDeleteTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in com.jsp.book.service.DeleteOperationTests$MovieDeleteTests
+[INFO] Running com.jsp.book.service.DeleteOperationTests$ScreenDeleteTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in com.jsp.book.service.DeleteOperationTests$ScreenDeleteTests
+[INFO] Running com.jsp.book.service.DeleteOperationTests$TheaterDeleteTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in com.jsp.book.service.DeleteOperationTests$TheaterDeleteTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.179 s -- in com.jsp.book.service.DeleteOperationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.616 s
+[INFO] Finished at: 2026-05-06T15:52:07+05:30
+[INFO] ------------------------------------------------------------------------
